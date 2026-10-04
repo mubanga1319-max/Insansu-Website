@@ -1,0 +1,384 @@
+/* ============================================================
+   Insansu Venture — Stylesheet (brand-aligned)
+   Type: Fraunces (display) + Public Sans (body)
+   Palette drawn from the Insansu Venture logo + product labels
+   ============================================================ */
+
+:root{
+  --pine: #1F5E22;        /* dark green — headings, wordmark */
+  --leaf: #4F9A2D;        /* bright green — accent, CTAs */
+  --leaf-dark: #3E7D22;   /* hover state */
+  --cream: #F7F2E6;       /* main background */
+  --parchment: #ECE1C8;   /* alternate section background */
+  --ink: #17231A;         /* dark band — header/footer */
+  --ink-soft: #1E2C21;
+  --text-dark: #24211A;
+  --text-dim: #6E6A57;
+  --text-light: #F3EFE2;
+  --text-light-dim: #B9C2B2;
+  --clay: #B24A2E;        /* tomato / pickle accent */
+  --plum: #7E2A58;        /* onion accent */
+  --brown: #7A4A22;       /* peanut butter accent */
+  --rule: rgba(36,33,26,0.14);
+  --rule-light: rgba(243,239,226,0.18);
+  --max: 1180px;
+  --gutter: clamp(1.25rem, 4vw, 3.5rem);
+}
+
+*,*::before,*::after{ box-sizing: border-box; }
+html{ scroll-behavior: smooth; }
+body{
+  margin:0;
+  background: var(--cream);
+  color: var(--text-dark);
+  font-family: "Public Sans", -apple-system, "Segoe UI", sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+img{ max-width:100%; display:block; }
+a{ color: inherit; }
+.container{
+  max-width: var(--max);
+  margin: 0 auto;
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+}
+
+h1,h2,h3,h4{
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 500;
+  line-height: 1.08;
+  margin: 0 0 0.5em;
+  letter-spacing: -0.01em;
+  color: var(--pine);
+}
+h1{ font-size: clamp(2.6rem, 6vw, 4.6rem); font-weight: 460; }
+h2{ font-size: clamp(1.9rem, 3.6vw, 2.8rem); }
+h3{ font-size: clamp(1.25rem, 2vw, 1.55rem); font-weight: 560; }
+p{ margin: 0 0 1.1em; max-width: 62ch; color: var(--text-dim); }
+.lede{ font-size: 1.2rem; color: var(--text-dim); max-width: 46ch; }
+.eyebrow{
+  font-family: "Fraunces", serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--leaf);
+  margin: 0 0 0.6em;
+}
+
+/* ---------- Header / Nav ---------- */
+.site-header{
+  position: sticky; top:0; z-index: 50;
+  background: rgba(247,242,230,0.94);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--rule);
+}
+.nav-row{
+  display:flex; align-items:center; justify-content:space-between;
+  padding: 0.9rem 0;
+}
+.brand{
+  display:flex; align-items:center; gap:0.6rem;
+  text-decoration:none;
+}
+.brand img{ height: 40px; width:auto; }
+.brand-text{
+  font-family:"Fraunces", serif; font-weight:600; font-size:1.2rem; color: var(--pine);
+}
+.site-footer .brand img{ height: 32px; width:auto; }
+.site-footer .brand-text{ color: var(--text-light); }
+.nav-links{
+  display:flex; gap: 2.1rem; list-style:none; margin:0; padding:0;
+  font-size: 0.97rem;
+}
+.nav-links a{
+  text-decoration:none;
+  color: var(--text-dim);
+  padding-bottom: 4px;
+  border-bottom: 1px solid transparent;
+  transition: color .18s ease, border-color .18s ease;
+}
+.nav-links a:hover, .nav-links a[aria-current="page"]{
+  color: var(--pine);
+  border-color: var(--leaf);
+}
+.nav-toggle{
+  display:none;
+  background:none; border:1px solid var(--rule); color: var(--text-dark);
+  width: 42px; height: 38px; border-radius: 3px; cursor:pointer;
+  font-size: 1.1rem;
+}
+
+/* ---------- Buttons ---------- */
+.btn{
+  display:inline-block;
+  padding: 0.85rem 1.6rem;
+  font-size: 0.98rem;
+  text-decoration:none;
+  border: 1px solid var(--leaf);
+  color: #fff;
+  background: var(--leaf);
+  border-radius: 2px;
+  font-weight: 600;
+  transition: background .18s ease, color .18s ease;
+}
+.btn:hover{ background: var(--leaf-dark); border-color: var(--leaf-dark); }
+.btn-outline{
+  background: transparent; color: var(--pine); border-color: var(--rule);
+}
+.btn-outline:hover{ border-color: var(--leaf); color: var(--leaf-dark); background:transparent; }
+
+/* on dark bands */
+.band-dark .btn-outline{ color: var(--text-light); border-color: var(--rule-light); }
+.band-dark .btn-outline:hover{ border-color: var(--leaf); color: var(--leaf); }
+
+/* ---------- Sections ---------- */
+section{ padding: clamp(3.5rem, 8vw, 6.5rem) 0; }
+.section-alt{ background: var(--parchment); }
+.band-dark{ background: var(--ink); color: var(--text-light); }
+.band-dark h1, .band-dark h2, .band-dark h3{ color: var(--text-light); }
+.band-dark p, .band-dark .lede{ color: var(--text-light-dim); }
+.band-dark .eyebrow{ color: var(--leaf); }
+.rule{ border:0; border-top: 1px solid var(--rule); margin: 0; }
+.band-dark .rule{ border-top-color: var(--rule-light); }
+
+/* ---------- Hero ---------- */
+.hero{
+  padding-top: clamp(3rem, 8vw, 5.5rem);
+  padding-bottom: clamp(2.5rem, 6vw, 4rem);
+}
+.hero-grid{
+  display:grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+}
+.hero-art{
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid var(--rule);
+}
+.hero-art img{ width:100%; height: 100%; object-fit: cover; aspect-ratio: 4/5; }
+.hero-meta{
+  display:flex; gap: 2.4rem; margin-top: 2.6rem; flex-wrap: wrap;
+}
+.hero-meta div{ border-left: 2px solid var(--leaf); padding-left: 1rem; }
+.hero-meta .num{
+  font-family:"Fraunces", serif; font-size: 1.6rem; color: var(--pine); display:block;
+}
+.hero-meta .lbl{ font-size: 0.88rem; color: var(--text-dim); }
+
+/* ---------- Value chain rows ---------- */
+.chain-list{ margin-top: 2.5rem; }
+.chain-row{
+  display:grid;
+  grid-template-columns: 90px 1fr 1.3fr;
+  gap: 2rem;
+  padding: 1.9rem 0;
+  border-top: 1px solid var(--rule);
+  align-items: start;
+}
+.chain-row:last-child{ border-bottom: 1px solid var(--rule); }
+.chain-index{
+  font-family:"Fraunces", serif; font-style: italic;
+  font-size: 1.05rem; color: var(--leaf);
+}
+.chain-row h3{ margin-bottom: 0.35em; }
+.chain-row p{ margin:0; }
+
+/* ---------- Project rows (editorial list) ---------- */
+.proj-list{ margin-top: 2rem; }
+.proj-row{
+  padding: 2.3rem 0;
+  border-top: 1px solid var(--rule);
+  display:grid;
+  grid-template-columns: 1fr 1.7fr;
+  gap: 2.2rem;
+}
+.proj-row:last-child{ border-bottom: 1px solid var(--rule); }
+.proj-tag{
+  display:inline-block;
+  font-size: 0.82rem;
+  color: var(--leaf-dark);
+  border: 1px solid currentColor;
+  padding: 0.2rem 0.6rem;
+  border-radius: 2px;
+  margin-bottom: 0.8rem;
+}
+.band-dark .proj-tag{ color: var(--leaf); }
+.proj-meta{ color: var(--text-dim); font-size: 0.95rem; margin-top: 1rem; }
+.proj-meta span{ display:block; margin-bottom: 0.3rem; }
+.proj-meta strong{ color: var(--text-dark); }
+.band-dark .proj-meta strong{ color: var(--text-light); }
+
+/* ---------- Two column ---------- */
+.two-col{
+  display:grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem,5vw,4.5rem);
+  align-items: start;
+}
+
+/* ---------- Quote / statement block ---------- */
+.statement{
+  font-family:"Fraunces", serif;
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  font-weight: 440;
+  max-width: 26ch;
+  line-height: 1.25;
+  color: var(--pine);
+}
+.statement em{ color: var(--leaf-dark); font-style: italic; }
+
+/* ---------- Photo grid (crops) ---------- */
+.photo-grid{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.4rem;
+  margin-top: 2.2rem;
+}
+.photo-card{
+  border-radius: 4px; overflow:hidden; border:1px solid var(--rule);
+  background: #fff;
+}
+.photo-card img{ width:100%; aspect-ratio: 4/3; object-fit: cover; }
+.photo-card .cap{ padding: 0.9rem 1.1rem 1.1rem; }
+.photo-card h3{ font-size: 1.05rem; margin-bottom: 0.15em; }
+.photo-card p{ margin:0; font-size: 0.92rem; }
+
+/* ---------- Product grid (coming soon) ---------- */
+.product-grid{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.6rem;
+  margin-top: 2.2rem;
+}
+.product-card{
+  background:#fff; border:1px solid var(--rule); border-radius: 4px; overflow:hidden;
+  display:flex; flex-direction:column;
+}
+.product-card .shot{ aspect-ratio: 3/4; overflow:hidden; }
+.product-card .shot img{ width:100%; height:100%; object-fit: cover; object-position: top; }
+.product-card .cap{ padding: 1.1rem 1.2rem 1.3rem; position:relative; flex:1; display:flex; flex-direction:column; }
+.product-card h3{ font-size:1.1rem; margin-bottom:0.3em; }
+.soon-tag{
+  display:inline-block; align-self:flex-start;
+  font-size: 0.74rem; text-transform: none; letter-spacing: 0.02em;
+  padding: 0.22rem 0.6rem; border-radius: 2px; margin-bottom: 0.6rem;
+  color:#fff; font-weight:600;
+}
+
+/* ---------- Footer ---------- */
+.site-footer{
+  background: var(--ink);
+  color: var(--text-light);
+  padding: 3.5rem 0 2.2rem;
+}
+.footer-grid{
+  display:grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 2.5rem;
+}
+.footer-grid p{ color: var(--text-light-dim); }
+.footer-grid h4{ font-size: 0.95rem; color: var(--text-light-dim); font-weight:600; font-family:"Public Sans",sans-serif; margin-bottom: 0.9rem;}
+.footer-grid a{ text-decoration:none; color: var(--text-light-dim); display:block; margin-bottom:0.55rem; font-size:0.96rem;}
+.footer-grid a:hover{ color: var(--leaf); }
+.footer-bottom{
+  margin-top: 3rem; padding-top: 1.6rem; border-top: 1px solid var(--rule-light);
+  display:flex; justify-content:space-between; flex-wrap:wrap; gap:1rem;
+  font-size: 0.85rem; color: var(--text-light-dim);
+}
+.footer-tagline{ font-family:"Fraunces", serif; font-style: italic; color: var(--leaf); font-size:1rem; margin-top:0.4rem;}
+
+/* ---------- Contact form ---------- */
+.form-grid{ display:grid; gap: 1.2rem; max-width: 560px; margin-top: 2rem;}
+.form-grid label{ display:block; font-size: 0.9rem; margin-bottom: 0.4rem; color: var(--text-dim);}
+.form-grid input, .form-grid textarea{
+  width:100%; padding: 0.85rem 1rem; font-family: inherit; font-size: 1rem;
+  border: 1px solid var(--rule); border-radius: 2px; background: #fff; color: var(--text-dark);
+}
+.form-grid textarea{ min-height: 130px; resize: vertical; }
+.form-note{ font-size: 0.88rem; color: var(--text-dim); margin-top: 1rem; }
+
+/* ---------- Info rows (contact page) ---------- */
+.info-row{ display:flex; gap:1.2rem; padding: 1.3rem 0; border-top: 1px solid var(--rule); }
+.info-row:last-child{ border-bottom: 1px solid var(--rule); }
+.info-row .k{ width: 130px; flex-shrink:0; color: var(--text-dim); font-size:0.92rem; }
+.info-row .v{ font-family:"Fraunces", serif; font-size: 1.1rem; color: var(--pine); }
+
+/* ---------- Utility ---------- */
+.mt-lg{ margin-top: 3rem; }
+.center{ text-align:center; }
+.tag-row{ display:flex; gap: 0.6rem; flex-wrap:wrap; margin-top: 1rem; }
+.tag{
+  font-size: 0.82rem; padding: 0.25rem 0.7rem; border: 1px solid var(--rule);
+  border-radius: 2px; color: var(--text-dim);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 860px){
+  .nav-links{ display:none; }
+  .nav-toggle{ display:block; }
+  .hero-grid{ grid-template-columns: 1fr; }
+  .chain-row{ grid-template-columns: 1fr; gap: 0.6rem; }
+  .proj-row{ grid-template-columns: 1fr; }
+  .two-col{ grid-template-columns: 1fr; }
+  .footer-grid{ grid-template-columns: 1fr 1fr; }
+  .photo-grid{ grid-template-columns: repeat(2, 1fr); }
+  .product-grid{ grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 520px){
+  .footer-grid{ grid-template-columns: 1fr; }
+  .footer-bottom{ flex-direction:column; }
+  .photo-grid{ grid-template-columns: 1fr 1fr; }
+  .product-grid{ grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior:auto; }
+  *{ animation-duration:0.01ms !important; transition-duration:0.01ms !important; }
+}
+
+/* focus visibility */
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible{
+  outline: 2px solid var(--leaf); outline-offset: 2px;
+}
+
+/* ---------- Indigenous vegetables ---------- */
+.veg-grid{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 2rem;
+}
+.veg-card{
+  background:#fff; border:1px solid var(--rule); border-left: 3px solid var(--leaf);
+  border-radius: 4px; padding: 1.1rem 1.2rem;
+}
+.veg-card h3{ font-size: 1.1rem; margin-bottom: 0.15em; }
+.veg-card p{ margin:0; font-size: 0.92rem; }
+
+/* text-only product shot (no photo yet) */
+.product-card .shot-text{
+  display:flex; align-items:center; justify-content:center;
+  background: var(--pine);
+}
+.product-card .shot-text span{
+  font-family:"Fraunces", serif; font-style: italic; font-size: 1.7rem; line-height:1.15;
+  color: var(--cream); text-align:center; padding: 1rem;
+}
+
+/* ---------- Order band ---------- */
+.order-band{ padding: clamp(2.5rem, 6vw, 4rem) 0; border-top: 1px solid var(--rule); }
+.order-row{
+  display:grid; grid-template-columns: 1.6fr auto; gap: 2rem; align-items:center;
+}
+
+@media (max-width: 860px){
+  .veg-grid{ grid-template-columns: repeat(2, 1fr); }
+  .order-row{ grid-template-columns: 1fr; }
+}
+
+/* keep product card text readable inside dark bands */
+.band-dark .product-card h3{ color: var(--pine); }
+.band-dark .product-card p{ color: var(--text-dim); }
+
+/* founder portrait */
+.portrait-card{ max-width: 380px; justify-self: center; width:100%; }
+.portrait-card img{ aspect-ratio: 4/5; object-fit: cover; object-position: center top; }
