@@ -382,3 +382,38 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 /* founder portrait */
 .portrait-card{ max-width: 380px; justify-self: center; width:100%; }
 .portrait-card img{ aspect-ratio: 4/5; object-fit: cover; object-position: center top; }
+
+
+/* ---------- Floating WhatsApp button ---------- */
+.wa-float{
+  position:fixed; right:18px; bottom:18px; z-index:60;
+  display:flex; align-items:center; gap:.55rem;
+  background:#25D366; color:#fff; text-decoration:none;
+  font-weight:600; font-size:.95rem; line-height:1;
+  padding:.8rem 1.05rem; border-radius:999px;
+  box-shadow:0 6px 18px rgba(0,0,0,.28);
+  transition:transform .15s ease, box-shadow .15s ease;
+}
+.wa-float:hover{ transform:translateY(-2px); box-shadow:0 9px 22px rgba(0,0,0,.32); color:#fff; }
+.wa-float svg{ width:24px; height:24px; fill:#fff; flex:none; }
+@media (max-width:560px){ .wa-float span{ display:none; } .wa-float{ padding:.9rem; } }
+
+/* ---------- Order links on cards ---------- */
+.order-link{
+  display:inline-block; margin-top:.7rem;
+  font-size:.86rem; font-weight:600; text-decoration:none;
+  color:var(--pine); border:1px solid var(--leaf);
+  padding:.38rem .8rem; border-radius:999px;
+}
+.order-link:hover{ background:var(--pine); color:#fff; border-color:var(--pine); }
+
+/* ---------- Map ---------- */
+.map-wrap{ border-radius:4px; overflow:hidden; border:1px solid var(--rule); margin-top:1.4rem; }
+.map-wrap iframe{ display:block; width:100%; height:380px; border:0; }
+
+/* ---------- News ---------- */
+.news-item{ padding:1.8rem 0; border-top:1px solid var(--rule); }
+.news-item:first-child{ border-top:none; padding-top:0; }
+.news-date{ font-size:.8rem; letter-spacing:.08em; text-transform:uppercase; color:var(--leaf-dark); font-weight:600; margin-bottom:.3rem; }
+.news-item h2{ font-size:1.5rem; margin-bottom:.4em; }
+.news-item img{ max-width:560px; width:100%; border-radius:4px; margin-top:.8rem; }
