@@ -560,3 +560,9 @@ section{ scroll-margin-top: 80px; }
 }
 
 .fp-proj.wide{ grid-column: 1 / -1; }
+
+.news-gallery{ display:grid; grid-template-columns: repeat(3,1fr); gap:.8rem; margin-top:1rem; max-width:760px; }
+.news-gallery figure{ margin:0; }
+.news-gallery img{ margin:0; max-width:none; width:100%; aspect-ratio:3/4; object-fit:cover; }
+.news-gallery figcaption{ font-size:.85rem; color:var(--text-dim); margin-top:.4rem; line-height:1.35; }
+@media (max-width:560px){ .news-gallery{ grid-template-columns:1fr; } .news-gallery img{ aspect-ratio:4/3; } }
