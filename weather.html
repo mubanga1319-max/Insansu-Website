@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Farm Weather — Insansu Venture</title>
+<meta name="description" content="Free 7-day weather outlook and farm advisories for Kafue, Kawambwa and Mungwi, with email alerts for farmers from Insansu Venture.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Insansu Venture">
+<meta property="og:title" content="Farm Weather — Insansu Venture">
+<meta property="og:description" content="Free 7-day weather outlook and farm advisories for Kafue, Kawambwa and Mungwi, with email alerts for farmers.">
+<meta property="og:url" content="https://insansuventure.online/weather.html">
+<meta property="og:image" content="https://insansuventure.online/images/brand/share.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://insansuventure.online/images/brand/share.jpg">
+<link rel="icon" href="images/brand/favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,460;0,9..144,560;1,9..144,460&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HKZN7J60WN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-HKZN7J60WN');
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav-row">
+    <a href="index.html" class="brand"><img src="images/brand/logo.png" alt="Insansu Venture"></a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="weather.html" aria-current="page">Farm weather</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+  </div>
+</header>
+<main>
+<section class="hero" style="padding-bottom:1.5rem;">
+  <div class="container">
+    <p class="eyebrow">Farm weather</p>
+    <h1 style="max-width:18ch;">Know the week before it arrives.</h1>
+    <p class="lede">A free weather outlook and simple farm advice for growers around Kafue, Kawambwa and Mungwi. Check it here any time, or subscribe and we will send alerts when the weather calls for action.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="wx-head">
+      <div>
+        <p class="eyebrow">7-day outlook</p>
+        <h2 id="wx-place" style="margin:0;">Kafue (Chipongwe)</h2>
+      </div>
+      <div class="wx-tabs" role="group" aria-label="Choose a location">
+        <button type="button" class="wx-tab" data-site="kafue" aria-pressed="true">Kafue</button>
+        <button type="button" class="wx-tab" data-site="kawambwa" aria-pressed="false">Kawambwa</button>
+        <button type="button" class="wx-tab" data-site="mungwi" aria-pressed="false">Mungwi</button>
+      </div>
+    </div>
+    <p id="wx-status" class="form-note" role="status"></p>
+    <div id="wx-days" class="wx-days"></div>
+    <p class="form-note">Each day shows the high and low temperature, expected rain and chance of rain. The <strong>field work index</strong> (0 to 100) rates how suitable the day is for spraying and field work: it drops with rain, wind and extreme heat.</p>
+  </div>
+</section>
+
+<section class="section-alt">
+  <div class="container">
+    <p class="eyebrow">What it means for your farm</p>
+    <h2>Advice for the week ahead.</h2>
+    <div id="wx-adv" class="wx-advs"></div>
+    <p class="form-note">Advice is generated from the forecast using simple rules for heavy rain, wet spells, heat, dry spells, wind, cold nights and good spraying days. It is a guide to help you plan, not a substitute for your own judgement or for official warnings from the Zambia Meteorological Department.</p>
+  </div>
+</section>
+
+<section id="alerts">
+  <div class="container">
+    <p class="eyebrow">Free alerts</p>
+    <h2>Get weather alerts from Insansu.</h2>
+    <p class="lede">Choose your location and we will email you when heavy rain, a wet spell, heat, a dry week, strong wind or cold nights are forecast, plus a short outlook each Monday. You can unsubscribe at any time with one click.</p>
+
+    <div id="alert-soon" hidden class="wx-soon">
+      <h3>Alerts are opening soon.</h3>
+      <p>Until then, the outlook above is live. To be told when alerts start, message us on WhatsApp and we will add you.</p>
+      <a class="btn" href="https://wa.me/260760538552?text=Hello%20Insansu%20Venture%2C%20please%20add%20me%20to%20the%20farm%20weather%20alerts.">Message us on WhatsApp</a>
+    </div>
+
+    <form id="alert-form" class="form-grid" novalidate>
+      <div><label for="a-name">Your name</label><input id="a-name" name="name" type="text" autocomplete="name"></div>
+      <div><label for="a-email">Email address</label><input id="a-email" name="email" type="email" autocomplete="email"></div>
+      <div><label for="a-phone">Phone number (optional)</label><input id="a-phone" name="phone" type="tel" autocomplete="tel" placeholder="+260 …"></div>
+      <label class="wx-check"><input type="checkbox" name="whatsapp"> I would also like alerts on WhatsApp or SMS when they are available</label>
+      <fieldset class="wx-fs"><legend>Where do you farm?</legend>
+        <label class="wx-check"><input type="checkbox" name="locations" value="kafue"> Kafue, Lusaka Province</label>
+        <label class="wx-check"><input type="checkbox" name="locations" value="kawambwa"> Kawambwa, Luapula Province</label>
+        <label class="wx-check"><input type="checkbox" name="locations" value="mungwi"> Mungwi (Mpanda), Northern Province</label>
+      </fieldset>
+      <div><label for="a-crops">What do you grow? (optional)</label><input id="a-crops" name="crops" type="text" placeholder="e.g. tomatoes, onions, maize"></div>
+      <div class="wx-hp" aria-hidden="true"><label>Leave this empty<input name="website" type="text" tabindex="-1" autocomplete="off"></label></div>
+      <label class="wx-check"><input type="checkbox" name="consent" required> I agree that Insansu Venture may contact me with weather alerts using these details. I can unsubscribe at any time.</label>
+      <div><button class="btn" type="submit">Subscribe to alerts</button></div>
+      <p id="alert-msg" class="wx-msg" role="status"></p>
+    </form>
+    <p class="form-note">We only use your details to send these alerts. We do not sell or share them.</p>
+  </div>
+</section>
+
+<section class="section-alt">
+  <div class="container">
+    <p class="eyebrow">About the data</p>
+    <p class="form-note" style="margin-top:0;max-width:62ch;">Forecasts come from the open <a href="https://open-meteo.com/" rel="noopener">Open-Meteo</a> weather service (data licensed CC BY 4.0). Forecasts are modelled for a general area, so conditions on your own plot can differ. Mungwi is shown for the wider Mpanda and Mungwi area.</p>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="brand" style="margin-bottom:0.8rem;"><img src="images/brand/mark.png" alt=""><span class="brand-text">Insansu Venture</span></a>
+        <p style="max-width:32ch;">A Zambian-owned integrated agribusiness company building value chains around indigenous crops.</p>
+        <p class="footer-tagline">We grow better.</p>
+      </div>
+      <div>
+        <h4>Site</h4>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="products.html">Products</a>
+        <a href="projects.html">Projects</a>
+        <a href="weather.html">Farm weather</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <a href="https://wa.me/260760538552">WhatsApp +260 760 538 552</a>
+        <a href="mailto:info@insansuventure.online">info@insansuventure.online</a>
+        <a href="mailto:insansuventure@gmail.com">insansuventure@gmail.com</a>
+        <a href="contact.html" style="pointer-events:none;">Kafue &amp; Kawambwa, Zambia</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span class="year"></span> Insansu Venture. All rights reserved.</span>
+      <span>Founded by Mubanga Mwansa · This site uses Google Analytics to count visits.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/weather.js"></script>
+</body>
+</html>
