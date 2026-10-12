@@ -1,7 +1,7 @@
 /* Insansu Farm Weather: live 7-day forecast from Open-Meteo plus simple farm advisories.
    The same rules run in the alert emails (alerts server). Set ALERTS_ENABLED to true once the alerts server is live. */
 (function(){
-  var ALERTS_ENABLED = false;
+  var ALERTS_ENABLED = true;
   var ALERTS_ENDPOINT = 'https://alerts.insansuventure.online/subscribe.php';
 
   var SITES = {
