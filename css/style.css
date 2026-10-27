@@ -618,3 +618,10 @@ section{ scroll-margin-top: 80px; }
 @media (max-width:900px){ .wx-days{ grid-template-columns:repeat(4,1fr); } }
 @media (max-width:520px){ .wx-days{ grid-template-columns:repeat(2,1fr); } }
 [hidden]{ display:none !important; }
+
+/* ---------- Downloads ---------- */
+.doc-grid{ display:grid; grid-template-columns: repeat(2, minmax(0, 300px)); gap: 1.4rem; margin-top: 2rem; }
+.doc-card{ display:block; color: inherit; text-decoration: none; }
+.doc-card img{ aspect-ratio: 210/297; object-fit: cover; object-position: top; border-bottom: 1px solid var(--rule); }
+.doc-card:hover h3{ color: var(--leaf-dark); }
+@media (max-width: 560px){ .doc-grid{ grid-template-columns: 1fr; } }
