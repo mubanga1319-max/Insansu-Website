@@ -8,7 +8,7 @@ window.INSANSU_SHOP = {
   deliveryAreas: ['Kafue', 'Chilanga', 'Lusaka', 'Collect from the farm'],
   products: [
     {id:'cabbage',  name:'Cabbage',  img:'images/crops/cabbage.jpg',  desc:'Fresh from our drip-irrigated fields.', price:null, unit:'', available:true},
-    {id:'onion',    name:'Onion',    img:'images/crops/onion.jpg',    desc:'Red onions, harvested to order.',       price:null, unit:'', available:true},
+    {id:'onion',    name:'Onion',    img:'images/crops/onions-harvest.jpg', desc:'Red and golden onions, just harvested and ready to sell.',       price:null, unit:'', available:true},
     {id:'tomatoes', name:'Tomatoes', img:'images/crops/tomato.jpg',   desc:'Field-grown and vine-ripened.',         price:null, unit:'', available:true},
     {id:'cucumber', name:'Cucumber', img:'images/crops/cucumber.jpg', desc:'Crisp cucumbers for fresh eating.',     price:null, unit:'', available:true},
     {id:'impwa',    name:'Impwa',    img:'images/crops/impwa.jpg',    desc:'Traditional indigenous vegetable.',     price:null, unit:'', available:true},
