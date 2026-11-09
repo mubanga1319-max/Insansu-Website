@@ -13,9 +13,9 @@
     var g=$('#shop-grid'); g.innerHTML='';
     S.products.forEach(function(p){
       var el=document.createElement('article'); el.className='shop-card';
-      el.innerHTML='<img alt="" loading="lazy"><div class="shop-body"><h3></h3><p class="shop-desc"></p><p class="shop-price"></p><div class="shop-add"></div></div>';
+      el.innerHTML='<img alt="" loading="lazy"><div class="shop-body"><h3></h3><p class="shop-desc"></p><p class="shop-contents"></p><p class="shop-price"></p><div class="shop-add"></div></div>';
       var img=$('img',el); img.src=p.img; img.alt=p.name;
-      $('h3',el).textContent=p.name; $('.shop-desc',el).textContent=p.desc; $('.shop-price',el).textContent=priceText(p);
+      $('h3',el).textContent=p.name; $('.shop-desc',el).textContent=p.desc; var ct=$('.shop-contents',el); if(p.contents){ ct.textContent='Includes: '+p.contents; } else { ct.remove(); } if(p.combo){ el.classList.add('shop-combo'); var bd=document.createElement('span'); bd.className='shop-badge'; bd.textContent='Combo'; el.insertBefore(bd,el.firstChild); } $('.shop-price',el).textContent=priceText(p);
       var add=$('.shop-add',el);
       if(p.available===false){ add.textContent='Currently unavailable'; }
       else{ var b=document.createElement('button'); b.type='button'; b.className='btn btn-small'; b.textContent='Add to order';
@@ -56,7 +56,7 @@
   function buildMessage(f){
     var t=totals(), L=[];
     L.push('Hello Insansu Venture, I would like to place an order. Order '+orderRef+'.','');
-    t.items.forEach(function(it){ L.push('- '+it.q+' x '+it.p.name+(it.line==null?' (price to confirm)':' = '+money(it.line))); });
+    t.items.forEach(function(it){ L.push('- '+it.q+' x '+it.p.name+(it.line==null?' (price to confirm)':' = '+money(it.line))+(it.p.contents?' [includes: '+it.p.contents+']':'')); });
     L.push('', 'Total: '+(t.unpriced?(t.total>0?money(t.total)+' so far, please confirm the rest':'please confirm'):money(t.total)));
     L.push('Name: '+f.name, 'Phone: '+f.phone, 'Delivery: '+f.area+(f.address?' - '+f.address:''));
     if(f.notes) L.push('Notes: '+f.notes);

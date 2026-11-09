@@ -652,3 +652,8 @@ section{ scroll-margin-top: 80px; }
 
 .btn-ghost{ background:transparent; color:var(--pine); border:1.5px solid var(--pine); }
 .btn-ghost:hover{ background:var(--pine); color:#fff; }
+
+.shop-card{ position:relative; }
+.shop-contents{ margin:0; font-size:.85rem; color:#5d5d50; }
+.shop-badge{ position:absolute; top:.7rem; left:.7rem; background:var(--pine); color:#fff; font-size:.75rem; font-weight:600; letter-spacing:.04em; text-transform:uppercase; padding:.25rem .6rem; border-radius:999px; z-index:1; }
+.shop-combo{ border-color:var(--leaf); box-shadow:0 0 0 1px var(--leaf); }
