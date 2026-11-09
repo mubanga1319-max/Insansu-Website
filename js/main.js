@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
   if (links) {
     var li = document.createElement('li');
-    li.innerHTML = '<a class="nav-cta" href="https://wa.me/260760538552?text=Hello%20Insansu%20Venture%2C%20I%27d%20like%20to%20order%20fresh%20produce.">Order</a>';
+    li.innerHTML = '<a class="nav-cta" href="shop.html">Order online</a>';
     links.appendChild(li);
   }
   var yearEls = document.querySelectorAll('.year');
