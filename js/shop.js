@@ -52,7 +52,7 @@
   }
 
   function ref(){ return 'INS-'+Date.now().toString(36).slice(-5).toUpperCase(); }
-  var orderRef=ref();
+  var orderRef=ref(), loc=null;
   function buildMessage(f){
     var t=totals(), L=[];
     L.push('Hello Insansu Venture, I would like to place an order. Order '+orderRef+'.','');
@@ -60,6 +60,7 @@
     L.push('', 'Total: '+(t.unpriced?(t.total>0?money(t.total)+' so far, please confirm the rest':'please confirm'):money(t.total)));
     L.push('Name: '+f.name, 'Phone: '+f.phone, 'Delivery: '+f.area+(f.address?' - '+f.address:''));
     if(f.notes) L.push('Notes: '+f.notes);
+    if(loc) L.push('Location: https://maps.google.com/?q='+loc.lat.toFixed(6)+','+loc.lon.toFixed(6));
     L.push('Payment: '+(f.pay==='543'?'Pay na 543 (*543*'+S.pay543Code+'#)':f.pay==='momo'?'MTN MoMo to '+S.momoNumber:'I will choose when you confirm'));
     return L.join('\n');
   }
@@ -69,6 +70,15 @@
     $('#pay543-code').textContent=S.pay543Code; $('#pay543-dial').textContent='*543*'+S.pay543Code+'#';
     $('#pay543-link').href='tel:*543*'+S.pay543Code+'%23'; $('#momo-num').textContent=S.momoNumber;
     $('#ord-ref').textContent=orderRef;
+    $('#c-loc').addEventListener('click',function(){
+      var m=$('#c-loc-msg'), b=this;
+      if(!navigator.geolocation){ m.textContent='Your browser cannot share location. Please type your address or landmark instead.'; return; }
+      m.textContent='Finding your location…';
+      navigator.geolocation.getCurrentPosition(function(p){
+        loc={lat:p.coords.latitude,lon:p.coords.longitude};
+        m.textContent='Location added ✓ (accuracy about '+Math.round(p.coords.accuracy)+' m). A map link will be included in your order.'; b.textContent='Update my location';
+      },function(){ loc=null; m.textContent='We could not get your location. Please allow location access, or type your address or landmark instead.'; },{enableHighAccuracy:true,timeout:15000,maximumAge:60000});
+    });
     $('#clear-cart').addEventListener('click',function(){ cart={}; save(); renderCart(); });
     $('#checkout').addEventListener('submit',function(e){
       e.preventDefault(); var fd=new FormData(e.target), msg=$('#co-msg');
