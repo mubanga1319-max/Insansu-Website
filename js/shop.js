@@ -92,5 +92,9 @@
     });
   }
 
-  document.addEventListener('DOMContentLoaded',function(){ load(); renderProducts(); initCheckout(); renderCart(); });
+  function initShare(){ var b=$('#share-copy'); if(!b) return;
+    b.addEventListener('click',function(){ var u='https://insansuventure.online/shop.html';
+      var done=function(){ b.textContent='Link copied ✓'; setTimeout(function(){b.textContent='Copy link';},1500); };
+      if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(u).then(done,function(){ window.prompt('Copy this link:',u); }); } else { window.prompt('Copy this link:',u); } }); }
+  document.addEventListener('DOMContentLoaded',function(){ initShare(); load(); renderProducts(); initCheckout(); renderCart(); });
 })();
